@@ -35,16 +35,6 @@ resource "azurerm_app_service_plan" "this" {
   }
 }
 
-resource "azurerm_app_service" "this" {
-  name                = local.app_service_name
-  location            = azurerm_resource_group.this.location
-  resource_group_name = azurerm_resource_group.this.name
-  app_service_plan_id = azurerm_app_service_plan.this.id
-
-  site_config {
-    linux_fx_version = "NODE|14-lts"
-  }
-}
 
 resource "azurerm_app_service" "this" {
   name                = local.app_service_name
